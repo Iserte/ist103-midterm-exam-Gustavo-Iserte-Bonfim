@@ -5,12 +5,17 @@
   --bg-color: #f5f5f5;
   --contact-bg-color: #eef2f5;
   --skill-bg-color: #e7edf1;
+  --highlight-color: #74d8ff;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -26,6 +31,15 @@ header {
   color: white;
   padding: 20px;
   text-align: center;
+}
+
+header nav a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+header nav a:hover {
+  color: var(--highlight-color);
+  transform: scale(1.05);
 }
 
 nav ul {
@@ -49,6 +63,14 @@ section {
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 footer {
@@ -71,6 +93,13 @@ form select {
   margin-bottom: 15px;
 }
 
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px var(--highlight-color);
+  transition: box-shadow 0.3s ease;
+}
+
 form button[type="submit"],
 form button[type="reset"] {
   background-color: var(--primary-color);
@@ -80,10 +109,12 @@ form button[type="reset"] {
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 form button:hover {
   background-color: var(--secondary-color);
+  transform: translateY(-2px);
 }
 
 section#contact {
@@ -112,9 +143,48 @@ section#skills ul li {
   border-radius: 6px;
   font-weight: bold;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section#skills ul li:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 section#skills ul li svg {
   width: 32px;
   height: 32px;
+}
+
+section#skills ul li svg {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+/* Escalonamento */
+section#skills ul li:nth-child(1) svg {
+  animation-delay: 0.2s;
+}
+section#skills ul li:nth-child(2) svg {
+  animation-delay: 0.4s;
+}
+section#skills ul li:nth-child(3) svg {
+  animation-delay: 0.6s;
+}
+section#skills ul li:nth-child(4) svg {
+  animation-delay: 0.8s;
+}
+section#skills ul li:nth-child(5) svg {
+  animation-delay: 1s;
+}
+section#skills ul li:nth-child(6) svg {
+  animation-delay: 1.2s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
