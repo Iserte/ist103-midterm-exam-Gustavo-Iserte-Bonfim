@@ -6,6 +6,7 @@
   --contact-bg-color: #eef2f5;
   --skill-bg-color: #e7edf1;
   --highlight-color: #74d8ff;
+  --back-to-top-bg-color: #002e57;
 }
 
 * {
@@ -187,4 +188,22 @@ section#skills ul li:nth-child(6) svg {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--back-to-top-bg-color);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
 }
